@@ -11,9 +11,11 @@
  * @flow
  */
 import { app, BrowserWindow } from 'electron';
-import MenuBuilder from './menu';
+import { createPyProc, exitPyProc, createPyClient } from './py_start';
+import MenuBuilder from './main/menu';
 
 let mainWindow = null;
+
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');
@@ -53,11 +55,14 @@ app.on('window-all-closed', () => {
   }
 });
 
+app.on('will-quit',exitPyProc);
+
 
 app.on('ready', async () => {
   if (process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true') {
     await installExtensions();
   }
+  createPyProc();
 
   mainWindow = new BrowserWindow({
     show: false,
@@ -65,10 +70,8 @@ app.on('ready', async () => {
     height: 728
   });
 
-  mainWindow.loadURL(`file://${__dirname}/app.html`);
-
-  // @TODO: Use 'ready-to-show' event
-  //        https://github.com/electron/electron/blob/master/docs/api/browser-window.md#using-ready-to-show-event
+  mainWindow.loadURL(`file://${__dirname}/template/app.html`);
+  mainWindow.client = createPyClient();
   mainWindow.webContents.on('did-finish-load', () => {
     if (!mainWindow) {
       throw new Error('"mainWindow" is not defined');
@@ -84,3 +87,4 @@ app.on('ready', async () => {
   const menuBuilder = new MenuBuilder(mainWindow);
   menuBuilder.buildMenu();
 });
+

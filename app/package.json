@@ -2,17 +2,19 @@
   "name": "electron-react-boilerplate",
   "productName": "electron-react-boilerplate",
   "version": "1.0.0",
-  "description": "Electron application boilerplate based on React, React Router, Webpack, React Hot Loader for rapid application development",
+  "description": "Electron App base on python and ",
   "main": "./main.prod.js",
   "author": {
-    "name": "C. T. Lin",
-    "email": "chentsulin@gmail.com",
-    "url": "https://github.com/chentsulin"
+    "name": "friddle",
+    "email": "friddle@qq.com",
+    "url": "https://github.com/friddle/electron-react-mbox-python.git"
   },
   "scripts": {
-    "postinstall": "npm rebuild --runtime=electron --target=1.6.6 --disturl=https://atom.io/download/atom-shell --build-from-source"
+    "postinstall": "npm rebuild --runtime=electron --target=1.7.9 --disturl=https://atom.io/download/atom-shell --build-from-source"
   },
   "license": "MIT",
   "dependencies": {
+    "msgpack": "^1.0.2",
+    "zerorpc": "0.9.7"
   }
 }
