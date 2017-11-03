@@ -58,4 +58,4 @@ build/
 package-lock.json
 yarn.lock
 .dist
-app/pysrc/dist/
+app/pydist/

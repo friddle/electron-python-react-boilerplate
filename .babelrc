@@ -7,14 +7,15 @@
     "stage-0",
     "react"
   ],
-  "plugins": ["add-module-exports", "dynamic-import-webpack"],
+  "plugins": [ "transform-decorators-legacy","add-module-exports", "dynamic-import-webpack"],
   "env": {
     "production": {
       "presets": ["react-optimize"],
-      "plugins": ["babel-plugin-dev-expression"]
+      "plugins": ["babel-plugin-dev-expression", "transform-decorators-legacy" ]
     },
     "development": {
       "plugins": [
+        "transform-decorators-legacy",
         "transform-class-properties",
         "transform-es2015-classes",
         ["flow-runtime", {

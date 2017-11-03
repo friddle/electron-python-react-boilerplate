@@ -6,16 +6,10 @@
   "scripts": {
     "build": "concurrently \"npm run build-main\" \"npm run build-renderer\" \"npm run build-pysrc\"",
     "build-dll": "cross-env NODE_ENV=development node --trace-warnings -r babel-register ./node_modules/webpack/bin/webpack --config config/webpack.config.renderer.dev.dll.js --colors",
-    "build-pysrc": "pip install -r app/pysrc/requirments",
+    "build-pysrc": "pip install -r app/pysrc/requirments&&pyinstaller start.spec",
     "build-main": "cross-env NODE_ENV=production node --trace-warnings -r babel-register ./node_modules/webpack/bin/webpack --config config/webpack.config.main.prod.js --colors",
     "build-renderer": "cross-env NODE_ENV=production node --trace-warnings -r babel-register ./node_modules/webpack/bin/webpack --config config/webpack.config.renderer.prod.js --colors",
     "dev": "cross-env START_HOT=1 npm run start-renderer-dev",
-    "flow": "flow",
-    "flow-typed": "rimraf flow-typed/npm && flow-typed install --overwrite || true",
-    "lint": "eslint --cache --format=node_modules/eslint-formatter-pretty .",
-    "lint-fix": "npm run lint -- --fix",
-    "lint-styles": "stylelint app/*.css app/components/*.css --syntax scss",
-    "lint-styles-fix": "stylefmt -r app/*.css app/components/*.css",
     "package": "npm run build && build --publish never",
     "package-all": "npm run build && build -mwl",
     "package-linux": "npm run build && build --linux",
@@ -42,7 +36,7 @@
       "app.html",
       "main.prod.js",
       "main.prod.js.map",
-      "pysrc",
+      "pydist/",
       "package.json"
     ],
     "dmg": {
@@ -189,6 +183,7 @@
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "devtron": "^1.4.0",
     "electron-debug": "^1.2.0",
     "font-awesome": "^4.7.0",
