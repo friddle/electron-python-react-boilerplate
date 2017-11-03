@@ -8,6 +8,10 @@ Fixed to use python backend.
 Because js is suck to write background.
 不想用js写后端。但是写React写习惯了。Redux太麻烦了。换成Mobx试试
 
+Problem:
+not fix package problem
+还没解决打包问题。Pyinstaller打包有问题
+
 
 2.
 NodeJs:必须^8(zeroprc问题)
