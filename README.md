@@ -8,8 +8,10 @@ Because Js is suck to write background code.
 
 
 ### Attention:  
-##### NodeJs:must use version with 54  
-##### PyInstaller meet the problem   
+##### NodeJs:NODE_MODULE use version with 54 ,NODE version startwith 8
+##### PyInstaller meet the problem on Mac System
+##### Linux must install libzmq-dev?sudo apt-get install libzmq-dev?
+##### Not finish Yet/package meet problem
 Issue[https://github.com/zeromq/pyzmq/issues/1105]   
 
 Fix by code blow
