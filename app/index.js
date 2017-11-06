@@ -1,12 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router } from 'react-router';
+import { Router, Route } from 'react-router';
 import { remote } from 'electron';
 import createBrowserHistory from 'history/createBrowserHistory';
+import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import './template/app.global.css';
-import App from './render/App';
+import CountSum from './render/pages/CountSum';
+
 
 window.client = remote.getCurrentWindow().client;
+const promisify = (fn, receiver) => (...args) => new Promise((resolve, reject) => {
+  fn.apply(receiver, [...args, (err, res) => err ? reject(err) : resolve(res)]);
+});
+
+window.client.invoke_promise = promisify(window.client.invoke);
 
 const history = createBrowserHistory({
   hashType: 'slash'
@@ -15,9 +24,11 @@ const history = createBrowserHistory({
 window.history_api = history;
 
 ReactDOM.render(
-  <Router history={history} >
-    <App />
-  </Router>
-  , document.getElementById('root')
+  <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
+    <Router history={history} >
+      <Route path="/" component={CountSum} />
+    </Router>
+  </MuiThemeProvider>
+    , document.getElementById('root')
 );
 
