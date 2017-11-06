@@ -1,5 +1,8 @@
 # electron-react-python-boilerplate
 
+[中文](https://github.com/friddle/electron-react-mobx-python-boilerplate/blob/master/ReadME-CN.md)
+
+
 ### Reason   
 Forked [electron-react-boilerplate:https://github.com/chentsulin/electron-react-boilerplate](https://github.com/chentsulin/electron-react-boilerplate)   
 Inspired by [electron-python:https://github.com/friddle/electron-python-example.git](https://github.com/friddle/electron-python-example.git)
@@ -38,13 +41,20 @@ Change to
 
 
 ### Usage  
+remove package test/flow method
 
-1.run dev
+
+####development
+1.run development environment:
 tyarn run start-render-dev
 tyarn run start-main-dev
 
-2.run build
-tyarn run build
+2.run package
+tyarn run package-mac 
+or other platform
+
+more usage:please find 
+
 
 
 
