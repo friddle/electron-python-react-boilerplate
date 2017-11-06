@@ -60,13 +60,12 @@ app.on('will-quit',exitPyProc);
 
 app.on('ready', async () => {
   if (process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true') {
-    await installExtensions();
+    //await installExtensions();
   }
   createPyProc();
 
 
 
-  mainWindow.openDevTools();
   mainWindow = new BrowserWindow({
     show: false,
     width: 1024,

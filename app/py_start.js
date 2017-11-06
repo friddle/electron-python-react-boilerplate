@@ -15,6 +15,7 @@ const createPyProc = () => {
   if (process.env.NODE_ENV === 'development') {
     pyProc = child_process.spawn('python', [PYTHON_DIR, PY_PORT]);
   } else {
+    alert(RUNNING_PYTHON_DIR)
     console.log("PythonStartLocation:"+RUNNING_PYTHON_DIR)
     pyProc = child_process.execFile(path.join(RUNNING_PYTHON_DIR, 'start'));
   }

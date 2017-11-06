@@ -1,17 +1,18 @@
 # electron-react-python-boilerplate
 
 ### Reason   
-Forked [https://github.com/chentsulin/electron-react-boilerplate](!https://github.com/chentsulin/electron-react-boilerplate)   
-Inspired by [https://github.com/friddle/electron-python-example.git]
+Forked [electron-react-boilerplate:https://github.com/chentsulin/electron-react-boilerplate](https://github.com/chentsulin/electron-react-boilerplate)   
+Inspired by [electron-python:https://github.com/friddle/electron-python-example.git](https://github.com/friddle/electron-python-example.git)
 Fixed to use python backend.   
 Because Js is suck to write background code.    
 
 
 ### Attention:  
 ##### NodeJs:NODE_MODULE use version with 54 ,NODE version startwith 8
+##### Linux must install libzmq-dev(sudo apt-get install libzmq-dev)
+
+
 ##### PyInstaller meet the problem on Mac System
-##### Linux must install libzmq-dev?sudo apt-get install libzmq-dev?
-##### Not finish Yet/package meet problem
 Issue[https://github.com/zeromq/pyzmq/issues/1105]   
 
 Fix by code blow
@@ -34,8 +35,6 @@ Change to
         if os.path.exists("./zmq/libzmq.so"): shutil.copy('./zmq/libzmq.so','./');
         import libzmq
 ```
-###### mobx-react-router
-mobx-react-router not work with history@4 so deprecated
 
 
 ### Usage  
