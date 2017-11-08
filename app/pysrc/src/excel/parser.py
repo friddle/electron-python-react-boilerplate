@@ -12,11 +12,12 @@ class Parser:
 
     def import_excel(self, path, database_type):
         if not os.path.exists(path):
-            raise "error file location"
+            return False
         wb = load_workbook(filename=path, read_only=False, guess_types=True)
         for sheet_name in wb.sheetnames:
             sheet = wb[sheet_name]
             self.__import_class_detail_excel__(sheet, sheet_name)
+        return True
 
     def __import_class_detail_excel__(self, sheet, sheet_name):
         for row in range(2, sheet.max_row):
@@ -30,7 +31,7 @@ class Parser:
             try:
                 detail_column.save()
             except:
-                print(sheet_name, row, "异常")
+                print(row)
 
     def __covert_class_data__(self, sheet, row):
         detail = ClassDetail()

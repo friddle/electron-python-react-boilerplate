@@ -9,6 +9,7 @@ class ClassDetailServices:
     def __init__(self):
         if not ClassDetail.table_exists():
             database.create_tables([ClassDetail])
+        ClassDetail.delete().execute()
 
     def SelectClass(self, begin_date, end_date, select_maps):
         if type(select_maps) is str: select_maps = eval(select_maps)
@@ -60,4 +61,4 @@ class ClassDetailServices:
         return teacher_values
 
     def emptyTables(self):
-        ClassDetail.delete().excute()
+        ClassDetail.delete().execute()
