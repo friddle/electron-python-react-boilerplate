@@ -1,0 +1,26 @@
+.container {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    margin: 10% 10% 10% 10%;
+    background: rgb(247,247,247)
+}
+
+
+.text{
+    top:40%;
+    position:relative;
+    color:rgb(88,88,88);
+    display:inline-block;
+
+
+}
+
+
+.view{
+    top:50%;
+    position:relative;
+    display:inline-block;
+    right: -10%;
+
+}

@@ -28,10 +28,10 @@ export default class ClassStatics extends Component {
             {
                 this.state.statics.map(staticx => (
                   <TableRow>
-                      <TableRowColumn >{staticx.subject}</TableRowColumn>
-                      <TableRowColumn >{staticx.teacher_type}</TableRowColumn>
-                      <TableRowColumn >{staticx.count}</TableRowColumn>
-                      <TableRowColumn >{staticx.percent}</TableRowColumn>
+                    <TableRowColumn >{staticx.subject}</TableRowColumn>
+                    <TableRowColumn >{staticx.teacher_type}</TableRowColumn>
+                    <TableRowColumn >{staticx.count}</TableRowColumn>
+                    <TableRowColumn >{staticx.percent}</TableRowColumn>
                   </TableRow>
                 ))
             }

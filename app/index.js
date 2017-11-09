@@ -7,7 +7,9 @@ import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import './template/app.global.css';
-import CountSum from './render/pages/CountSum';
+import HomePage from './render/pages/HomePage';
+import ExcelPick from './render/pages/ExcelPick';
+import ClassStatics from './render/components/ClassStatics';
 
 
 window.client = remote.getCurrentWindow().client;
@@ -26,7 +28,12 @@ window.history_api = history;
 ReactDOM.render(
   <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
     <Router history={history} >
-      <Route path="/" component={CountSum} />
+      <div>
+        <Route path="/home" component={HomePage} />
+        <Route path="/excel" component={ExcelPick} />
+        <Route path="/static" component={ClassStatics} />
+        <Route path="/" component={ExcelPick} />
+      </div>
     </Router>
   </MuiThemeProvider>
     , document.getElementById('root')
