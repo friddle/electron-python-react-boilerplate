@@ -65,13 +65,13 @@ app.on('ready', async () => {
   createPyProc();
 
 
-
   mainWindow = new BrowserWindow({
     show: false,
     width: 1024,
     height: 728
   });
 
+  mainWindow.webContents.openDevTools();
   mainWindow.loadURL(`file://${__dirname}/template/app.html`);
   mainWindow.client = createPyClient();
   mainWindow.webContents.on('did-finish-load', () => {
