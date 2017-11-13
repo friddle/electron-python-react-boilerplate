@@ -29,7 +29,7 @@
     "files": [
       "dist/",
       "node_modules/",
-      "app.html",
+      "template/app.html",
       "main.prod.js",
       "main.prod.js.map",
       "pydist/",
