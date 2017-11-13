@@ -36,10 +36,6 @@
         import libzmq
 ```
 
-
-#### mac的打包问题   
-electron在最新的mac上是有安全毛病的（正在解决中） 
-
 ### 用法  
 去掉了test和flow，因为前端用的不多。项目不大。    
 后端写的不爽换Python了。    
