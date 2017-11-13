@@ -6,16 +6,16 @@
 ### Reason   
 Forked [electron-react-boilerplate:https://github.com/chentsulin/electron-react-boilerplate](https://github.com/chentsulin/electron-react-boilerplate)   
 Inspired by [electron-python:https://github.com/friddle/electron-python-example.git](https://github.com/friddle/electron-python-example.git)
-Fixed to use python backend.   
-Because Js is suck to write background code.    
+Fixed to use python backend.    
+Because Js is suck to write background code.     
 
 
 ### Attention:  
-##### NodeJs:NODE_MODULE use version with 54 ,NODE version startwith 8
-##### Linux must install libzmq-dev(sudo apt-get install libzmq-dev)
+##### NodeJs:NODE_MODULE use version with 54 ,NODE version startwith 8   
+##### Linux must install libzmq-dev(sudo apt-get install libzmq-dev)    
 
 
-##### PyInstaller meet the problem on Mac System
+##### PyInstaller meet the problem on Mac System   
 Issue[https://github.com/zeromq/pyzmq/issues/1105]   
 
 Fix by code blow
@@ -41,17 +41,16 @@ Change to
 
 
 ### Usage  
-remove package test/flow method
+remove package test/flow method   
 
 
-####development
-1.run development environment:
-yarn run start-render-dev
-yarn run start-main-dev
+#### Development
+1.run development environment:   
+yarn run start-render-dev   
+yarn run start-main-dev    
 
-2.run package
-yarn run package-mac 
-or other platform
+2.run package   
+yarn run package-mac or other platform    
 
 more usage:please fix the update
 
