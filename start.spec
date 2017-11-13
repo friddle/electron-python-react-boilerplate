@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['app/pysrc/start.py'],
-             pathex=['app/pysrc/src/', '/Users/talkweb/Project/xiuqing'],
+             pathex=['app/pysrc/src/', './'],
              binaries=[],
              datas=[],
              hiddenimports=[],

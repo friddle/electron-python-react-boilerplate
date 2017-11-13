@@ -64,7 +64,6 @@ app.on('ready', async () => {
   }
   createPyProc();
 
-
   mainWindow = new BrowserWindow({
     show: false,
     width: 1024,

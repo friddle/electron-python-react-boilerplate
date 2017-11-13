@@ -1,15 +1,21 @@
 # electron-react-python-boilerplate
 
+[中文](https://github.com/friddle/electron-react-mobx-python-boilerplate/blob/master/ReadME-CN.md)
+
+
 ### Reason   
-Forked [https://github.com/chentsulin/electron-react-boilerplate](!https://github.com/chentsulin/electron-react-boilerplate)   
-Inspired by [https://github.com/friddle/electron-python-example.git]
+Forked [electron-react-boilerplate:https://github.com/chentsulin/electron-react-boilerplate](https://github.com/chentsulin/electron-react-boilerplate)   
+Inspired by [electron-python:https://github.com/friddle/electron-python-example.git](https://github.com/friddle/electron-python-example.git)
 Fixed to use python backend.   
 Because Js is suck to write background code.    
 
 
 ### Attention:  
-##### NodeJs:must use version with 54  
-##### PyInstaller meet the problem   
+##### NodeJs:NODE_MODULE use version with 54 ,NODE version startwith 8
+##### Linux must install libzmq-dev(sudo apt-get install libzmq-dev)
+
+
+##### PyInstaller meet the problem on Mac System
 Issue[https://github.com/zeromq/pyzmq/issues/1105]   
 
 Fix by code blow
@@ -32,18 +38,24 @@ Change to
         if os.path.exists("./zmq/libzmq.so"): shutil.copy('./zmq/libzmq.so','./');
         import libzmq
 ```
-###### mobx-react-router
-mobx-react-router not work with history@4 so deprecated
 
 
 ### Usage  
+remove package test/flow method
 
-1.run dev
-tyarn run start-render-dev
-tyarn run start-main-dev
 
-2.run build
-tyarn run build
+####development
+1.run development environment:
+yarn run start-render-dev
+yarn run start-main-dev
+
+2.run package
+yarn run package-mac 
+or other platform
+
+more usage:please fix the update
+
+
 
 
 
