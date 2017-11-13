@@ -46,11 +46,11 @@ remove package test/flow method
 
 ####development
 1.run development environment:
-tyarn run start-render-dev
-tyarn run start-main-dev
+yarn run start-render-dev
+yarn run start-main-dev
 
 2.run package
-tyarn run package-mac 
+yarn run package-mac 
 or other platform
 
 more usage:please fix the update
