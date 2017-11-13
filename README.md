@@ -53,7 +53,8 @@ tyarn run start-main-dev
 tyarn run package-mac 
 or other platform
 
-more usage:please find 
+more usage:please fix the update
+
 
 
 

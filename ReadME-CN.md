@@ -6,8 +6,7 @@
 ### 原因
 当时用过这个项目撸过[electron-react-boilerplate](https://github.com/chentsulin/electron-react-boilerplate)项目，还觉得挺好用的。    
 但是后端用js的几个牛叉的库后顿感还是不很爽。前端倒是用React+MaterialUI挺舒服的。就是redux有点繁杂。所以果断换成mobx来取代了。   
-后端换成python是参考了[electron-python-sample](https://github.com/friddle/electron-python-
-example.git)这个项目。   
+后端换成python是参考了[electron-python-sample](https://github.com/friddle/electron-python-example.git)这个项目。   
 
 ### 注意
 1.NodeJs的Node_Module必须是42.Node的版本必须8开头
