@@ -29,7 +29,7 @@ const exitPyProc = () => {
 };
 
 const createPyClient = () => {
-  const client = new zerorpc.Client({ timeout: 100000 });
+  const client = new zerorpc.Client()
   client.connect(`tcp://127.0.0.1:${PY_PORT}`);
   return client;
 };

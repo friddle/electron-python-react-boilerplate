@@ -1,4 +1,4 @@
-from peewee import Model, TimeField, CharField, DateTimeField, IntegerField, BooleanField
+from peewee import Model, TimeField, CharField, DateTimeField, IntegerField, BooleanField, FloatField
 
 from base import database
 
@@ -13,7 +13,7 @@ class ClassDetail(Model):
     teacher_type = CharField(null=False)
     subject = CharField(null=False)
     manager = CharField(null=False)
-    class_times = IntegerField(null=False)
+    class_times = FloatField(null=False)
     class_type = CharField(null=False)
     additions = CharField(default='')
     finished = BooleanField(default=False)

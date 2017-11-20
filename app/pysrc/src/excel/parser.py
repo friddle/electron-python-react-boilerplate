@@ -4,11 +4,13 @@ import os
 from openpyxl import load_workbook
 
 from data.ClassDetail import ClassDetail
+import threading
+from functools import partial
 
 
 class Parser:
     def __init__(self):
-        pass
+        self.import_task = None
 
     def import_excel(self, path, database_type):
         if not os.path.exists(path):
@@ -18,6 +20,13 @@ class Parser:
             sheet = wb[sheet_name]
             self.__import_class_detail_excel__(sheet, sheet_name)
         return True
+
+    def import_excel_async(self, path):
+        self.import_task = threading.Thread(task=self.import_excel, args=path)
+        self.import_task.start()
+
+    def status_import(self):
+        return self.import_task.is_alive()
 
     def __import_class_detail_excel__(self, sheet, sheet_name):
         for row in range(2, sheet.max_row):
