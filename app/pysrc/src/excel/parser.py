@@ -12,7 +12,7 @@ class Parser:
     def __init__(self):
         self.import_task = None
 
-    def import_excel(self, path, database_type):
+    def import_excel(self, path):
         if not os.path.exists(path):
             return False
         wb = load_workbook(filename=path, read_only=False, guess_types=True)
@@ -22,11 +22,15 @@ class Parser:
         return True
 
     def import_excel_async(self, path):
-        self.import_task = threading.Thread(task=self.import_excel, args=path)
+        self.import_task = threading.Thread(target=self.import_excel, args=[str(path)])
         self.import_task.start()
+        return True
 
     def status_import(self):
-        return self.import_task.is_alive()
+        if self.import_task.is_alive() is False:
+            return "finish"
+        else:
+            return "running"
 
     def __import_class_detail_excel__(self, sheet, sheet_name):
         for row in range(2, sheet.max_row):

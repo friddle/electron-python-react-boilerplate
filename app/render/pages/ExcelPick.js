@@ -4,21 +4,25 @@ import Dropzone from 'react-dropzone';
 import CircularProgress from 'material-ui/CircularProgress';
 import AppBar from 'material-ui/AppBar';
 import style from './ExcelPick.css';
-import ClassStatics from "../components/ClassStatics";
+import ClassStatics from '../components/ClassStatics';
+import { Link } from 'react-router-dom';
 
 
 export default class ExcelPick extends Component {
-
   constructor(props) {
     super(props);
+    debugger;
     this.state = { load: 'begin' };
   }
 
   onDrop(files) {
     this.setState({ load: 'running' });
     console.log(files[0].path);
-    window.client.invoke_promise('import_excel', files[0].path, 'ClassDetail').then((result) => {
-      this.setState({ load: result === true ? 'finish' : 'error' });
+    window.client.invoke_promise('import_excel_async', files[0].path).then((result) => {
+      this.setState({ load: result === true ? 'running' : 'error' });
+      const job = setTimeout(this.getStatus.bind(this), 1000);
+      console.log(`setJob:${job}`);
+      this.setState({ job });
     }).catch((error) => {
       if (this.state.load !== 'error') {
         this.setState({ load: 'error' });
@@ -26,6 +30,17 @@ export default class ExcelPick extends Component {
       }
     });
   }
+  getStatus() {
+    window.client.invoke_promise('status_import').then(result => {
+      console.log(`invoke ready get answer:${result}`);
+      if (result.toString() === 'finish') {
+        this.setState({ load: 'finish' });
+      } else {
+        setTimeout(this.getStatus.bind(this), 1000);
+      }
+    });
+  }
+
 
   excelText() {
     if (this.state.load === 'begin') {
@@ -43,9 +58,6 @@ export default class ExcelPick extends Component {
   }
 
   render() {
-    if (this.state.load === 'finish') {
-      return (<ClassStatics />);
-    }
     const text = this.excelText();
     return (
       <div className="root_page">
@@ -54,12 +66,12 @@ export default class ExcelPick extends Component {
           <div className={`${style.text}`} >{text}</div>
           <div className={`${style.view}`}>
             {
-                (this.state.load === 'begin' || this.state.load === 'error') ? (
-                  <Dropzone onDrop={this.onDrop.bind(this)} />
-                      ) : (
-                        <CircularProgress />
-                      )
-            }
+                        (this.state.load === 'begin' || this.state.load === 'error') ? (
+                          <Dropzone onDrop={this.onDrop.bind(this)} />
+                        ) : (this.state.load !== 'finish') ? (
+                          <CircularProgress />
+                        ) : (<Link className={style.container_text} to="/static">统计页面</Link>)
+                    }
           </div>
         </div>
       </div>

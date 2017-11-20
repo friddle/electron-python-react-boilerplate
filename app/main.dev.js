@@ -27,6 +27,7 @@ if (process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true')
   const path = require('path');
   const p = path.join(__dirname, '..', 'app', 'node_modules');
   require('module').globalPaths.push(p);
+  console.log("electron-debug finish")
 }
 
 const installExtensions = async () => {
@@ -71,7 +72,6 @@ app.on('ready', async () => {
   });
 
   mainWindow.webContents.openDevTools();
-  mainWindow.loadURL(`file://${__dirname}/template/app.html`);
   mainWindow.client = createPyClient();
   mainWindow.webContents.on('did-finish-load', () => {
     if (!mainWindow) {
@@ -80,6 +80,8 @@ app.on('ready', async () => {
     mainWindow.show();
     mainWindow.focus();
   });
+  console.log("backup app")
+  mainWindow.loadURL(`file://${__dirname}/template/app.html`);
 
   mainWindow.on('closed', () => {
     mainWindow = null;

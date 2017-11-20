@@ -31,9 +31,11 @@
         const port = process.env.PORT || 1212;
         scripts.push(
           (process.env.HOT)
-            ? 'http://localhost:' + port + './dist/renderer.dev.js'
+            ? 'http://localhost:' + port + '/dist/renderer.dev.js'
             : '../dist/renderer.prod.js'
         );
+
+        window.origin_host = window.location.href;
 
         document.write(
           scripts

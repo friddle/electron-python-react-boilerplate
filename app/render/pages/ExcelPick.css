@@ -6,9 +6,15 @@
     background: rgb(247,247,247)
 }
 
+.container_text {
+    position: relative;
+    width: 40%;
+    display:inline-block;;
+}
+
 
 .text{
-    top:40%;
+    top:20%;
     position:relative;
     color:rgb(88,88,88);
     display:inline-block;
@@ -18,7 +24,7 @@
 
 
 .view{
-    top:50%;
+    top:30%;
     position:relative;
     display:inline-block;
     right: -10%;
