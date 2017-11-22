@@ -60,7 +60,6 @@ class ClassDetailServices:
         return teacher_values
 
     def GetTeacherDetailTimes(self):
-
         query = (ClassDetail.select(ClassDetail.teacher, ClassDetail.class_type, ClassDetail.subject,
                                     fn.SUM(ClassDetail.class_times).alias("total_time")). \
                  group_by(ClassDetail.teacher, ClassDetail.class_type, ClassDetail.subject).order_by("subject"))

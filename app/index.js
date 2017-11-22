@@ -18,7 +18,7 @@ const promisify = (fn, receiver) => (...args) => new Promise((resolve, reject) =
 });
 
 window.client.invoke_promise = promisify(window.client.invoke);
-//window.client.invoke_promise('emptyTables').then(error => (console.log(error)));
+window.client.invoke_promise('emptyTables').then(error => (console.log(error)));
 
 ReactDOM.render(
   <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
@@ -28,7 +28,7 @@ ReactDOM.render(
         <Route path="/excel" component={ExcelPick} />
         <Route path="/static" component={ClassStatics} />
         <Route path="/teacher" component={DetailTeacherStatic} />
-        <Route path="/" component={DetailTeacherStatic} />
+        <Route path="/" component={ExcelPick} />
       </Switch>
     </Router>
   </MuiThemeProvider>

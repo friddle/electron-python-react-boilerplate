@@ -8,11 +8,12 @@ import {
     TableRow,
     TableRowColumn,
 } from 'material-ui/Table';
-import { Button } from 'material-ui';
+import FlatButton from 'material-ui/FlatButton';
 
 export default class ClassStatics extends Component {
   constructor(props) {
     super(props);
+    this.state = { statics: undefined };
   }
   componentDidMount() {
     window.client.invoke_promise('SumByTypeAndSubject').then(result => this.setState({ statics: result }));
@@ -23,7 +24,7 @@ export default class ClassStatics extends Component {
     }
     return (
       <div>
-        <Table adjustForCheckbox={false} >
+        <Table displayRowCheckbox={false} >
           <TableBody>
             {
                 this.state.statics.map(staticx => (
@@ -37,7 +38,6 @@ export default class ClassStatics extends Component {
             }
           </TableBody>
         </Table>
-        <Button>下个统计信息</Button>
       </div>
     );
   }
