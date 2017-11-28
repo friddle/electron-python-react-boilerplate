@@ -8,13 +8,15 @@ const PYTHON_DIR = path.join(__dirname, 'pysrc/start.py');
 const PY_PORT = 4242;
 let pyProc = null;
 
-const RUNNING_PYTHON_DIR = path.join(app.getAppPath(), './pydist/');
+const RUNNING_PYTHON_DIR = path.join(app.getAppPath(), '../');
 
 
 const createPyProc = () => {
   if (process.env.NODE_ENV === 'development') {
-    pyProc = child_process.spawn('python', [PYTHON_DIR, PY_PORT]);
+    console.log(`PythonDevelopLocation:${PYTHON_DIR}`);
+    pyProc = child_process.spawn('python', [PYTHON_DIR]);
   } else {
+    console.log(`PythonStartLocation:${RUNNING_PYTHON_DIR}`);
     pyProc = child_process.execFile(path.join(RUNNING_PYTHON_DIR, 'start'));
   }
   if (pyProc != null) {

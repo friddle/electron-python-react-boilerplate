@@ -6,7 +6,7 @@
   "scripts": {
     "build": "concurrently \"npm run build-main\" \"npm run build-renderer\" \"npm run build-pysrc\"",
     "build-dll": "cross-env NODE_ENV=development node --trace-warnings -r babel-register ./node_modules/webpack/bin/webpack --config config/webpack.config.renderer.dev.dll.js --colors",
-    "build-pysrc": "pip install -r app/pysrc/requirments&&pyinstaller start.spec",
+    "build-pysrc": "pip install -r app/pysrc/requirments&&pyinstaller start.spec --distpath=./app/pydist/" ,
     "build-main": "cross-env NODE_ENV=production node --trace-warnings -r babel-register ./node_modules/webpack/bin/webpack --config config/webpack.config.main.prod.js --colors",
     "build-renderer": "cross-env NODE_ENV=production node --trace-warnings -r babel-register ./node_modules/webpack/bin/webpack --config config/webpack.config.renderer.prod.js --colors",
     "dev": "cross-env START_HOT=1 npm run start-renderer-dev",
@@ -32,8 +32,10 @@
       "template/app.html",
       "main.prod.js",
       "main.prod.js.map",
-      "pydist/",
       "package.json"
+    ],
+    "extraResources":[
+      {"from":"app/pydist/start","to":"./start"}
     ],
     "dmg": {
       "contents": [
