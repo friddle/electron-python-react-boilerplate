@@ -8,7 +8,7 @@ const PYTHON_DIR = path.join(__dirname, 'pysrc/start.py');
 const PY_PORT = 4242;
 let pyProc = null;
 
-const RUNNING_PYTHON_DIR = path.join(app.getAppPath(), './pydist/');
+const RUNNING_PYTHON_DIR = path.join(app.getAppPath(), '../');
 
 
 const createPyProc = () => {

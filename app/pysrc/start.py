@@ -21,8 +21,8 @@ class Server:
         self.objects.append(obj)
         for method in dir(obj):
             if callable(getattr(obj, method)) and not method.startswith("__"):
-                if dir(self).__contains__(method):print("you have register method:"+method);sys.exit(0);
-                setattr(self,method,getattr(obj,method))
+                if dir(self).__contains__(method): print("you have register method:" + method);sys.exit(0);
+                setattr(self, method, getattr(obj, method))
 
 
 def main():
@@ -32,7 +32,6 @@ def main():
     server.register(ClassDetailServices())
     s = zerorpc.Server(server)
     s.bind(addr)
-    print("start running on {}".format(addr))
     s.run()
 
 

@@ -2,7 +2,7 @@
 
 from data.ClassDetail import ClassDetail;
 from data.base import database
-from peewee import fn
+from peewee import *
 
 
 class ClassDetailServices:
