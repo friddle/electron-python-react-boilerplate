@@ -3,6 +3,6 @@ import zerorpc
 
 class HelloWorld(object):
     def hello(self,text):
-        return text;
+        return text+"hello"
 
 
