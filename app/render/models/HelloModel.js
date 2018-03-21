@@ -4,7 +4,7 @@ export default class HelloModel {
 
   @observable world;
   constructor() {
-    this.world = 'BeginHello';
+    this.world = 'Hello From Python';
   }
 
   @action.bound
@@ -14,6 +14,6 @@ export default class HelloModel {
 
   @action
   fetchHello(){
-      window.client.invoke('hello', 'HelloWorld', (error, result) => { this.setWorld(result); });
+      window.client.invoke('hello', 'Hello from python:  ', (error, result) => { this.setWorld(result); });
   }
 }

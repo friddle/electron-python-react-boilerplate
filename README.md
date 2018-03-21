@@ -42,6 +42,9 @@ Change to
 
 ### Usage  
 remove package test/flow method   
+Python/JS pass by zerorpc
+All python code is in pysrc
+
 
 
 #### Development
@@ -51,6 +54,8 @@ yarn run start-main-dev
 
 2.run package   
 yarn run package-mac or other platform    
+
+
 
 more usage:please fix the update
 

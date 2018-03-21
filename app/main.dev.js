@@ -11,7 +11,7 @@
  * @flow
  */
 import { app, BrowserWindow } from 'electron';
-import { createPyProc, exitPyProc, createPyClient } from './py_start';
+import { createPyProc, exitPyProc, createPyClient, testPyPort } from './py_start';
 import MenuBuilder from './main/menu';
 
 let mainWindow = null;
@@ -55,17 +55,15 @@ app.on('window-all-closed', () => {
   }
 });
 
-app.on('will-quit',exitPyProc);
+app.on('will-quit', exitPyProc);
 
 
 app.on('ready', async () => {
   if (process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true') {
-    //await installExtensions();
+    // await installExtensions();
   }
-  createPyProc();
-
-
-
+  const port = await testPyPort();
+  createPyProc(port);
   mainWindow = new BrowserWindow({
     show: false,
     width: 1024,
@@ -73,7 +71,7 @@ app.on('ready', async () => {
   });
 
   mainWindow.loadURL(`file://${__dirname}/template/app.html`);
-  mainWindow.client = createPyClient();
+  mainWindow.client = createPyClient(port);
   mainWindow.webContents.on('did-finish-load', () => {
     if (!mainWindow) {
       throw new Error('"mainWindow" is not defined');

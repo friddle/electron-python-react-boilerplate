@@ -38,8 +38,10 @@
 
 ### 用法  
 去掉了test和flow，因为前端用的不多。项目不大。    
-后端写的不爽换Python了。    
+后端写的不爽换Python了。  
+后端代码在pysrc里面
 推荐使用tyarn：cnpm install -g tyarn yarn    
+
 
 1.   测试环境
 tyarn run start-render-dev  

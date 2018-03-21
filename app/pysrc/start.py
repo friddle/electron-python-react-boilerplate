@@ -4,7 +4,6 @@ import sys;sys.path.append('./src')
 from helloworld import HelloWorld;
 import zerorpc
 
-
 OPEN_PORT=str(4242)
 
 class Server:
@@ -19,8 +18,8 @@ class Server:
                 setattr(self,method,getattr(obj,method))
 
 
-def main():
-    addr='tcp://127.0.0.1:'+ OPEN_PORT
+def main(port):
+    addr='tcp://127.0.0.1:'+ port
     server = Server()
     server.register(HelloWorld())
     s = zerorpc.Server(server)
@@ -29,4 +28,4 @@ def main():
     s.run()
 
 if __name__=="__main__":
-    main()
+    main(sys.argv[1])
