@@ -9,17 +9,15 @@
 .container_text {
     position: relative;
     width: 40%;
+    color: black;
     display:inline-block;;
 }
-
 
 .text{
     top:20%;
     position:relative;
     color:rgb(88,88,88);
     display:inline-block;
-
-
 }
 
 

@@ -70,7 +70,7 @@ export default class ExcelPick extends Component {
                           <Dropzone onDrop={this.onDrop.bind(this)} />
                         ) : (this.state.load !== 'finish') ? (
                           <CircularProgress />
-                        ) : (<Link className={style.container_text} to="/static">统计页面</Link>)
+                        ) : (<Link className={style.container_text} to="/teacher">统计页面</Link>)
                     }
           </div>
         </div>

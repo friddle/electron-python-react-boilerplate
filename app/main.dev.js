@@ -71,7 +71,7 @@ app.on('ready', async () => {
     height: 728
   });
 
-  mainWindow.webContents.openDevTools();
+  //mainWindow.webContents.openDevTools();
   mainWindow.client = createPyClient();
   mainWindow.webContents.on('did-finish-load', () => {
     if (!mainWindow) {
@@ -80,7 +80,7 @@ app.on('ready', async () => {
     mainWindow.show();
     mainWindow.focus();
   });
-  console.log("backup app")
+  //console.log("backup app")
   mainWindow.loadURL(`file://${__dirname}/template/app.html`);
 
   mainWindow.on('closed', () => {
